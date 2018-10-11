@@ -19,9 +19,7 @@ class Auth {
       }).catch((err)=>{
         console.log(err);
       });
-      ctx.body = {
-        resData
-      };
+      ctx.body = JSON.stringify(resData);
     }
   }
 }

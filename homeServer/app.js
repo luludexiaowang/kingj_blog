@@ -5,6 +5,8 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 const logger = require('koa-logger');
+const staticServer = require('koa-static');
+const path = require('path');
 
 // 数据库
 const mysql = require('./lib/mysql');
@@ -13,9 +15,9 @@ const mysql = require('./lib/mysql');
 const router = require('./routes/index');
 
 // 校验
-const auth = require('./lib/auth');
-const checkAuth = new auth();
-app.use(checkAuth.checkCooie);
+// const auth = require('./lib/auth');
+// const checkAuth = new auth();
+// app.use(checkAuth.checkCooie);
 
 // error handler
 onerror(app);
@@ -28,11 +30,7 @@ app.use(json());
 app.use(logger());
 
 // html 模板
-// app.use(require('koa-static')(__dirname + '/public'));
-// app.use(views(__dirname + '/views', {
-//   extension: 'pug'
-// }));
-
+app.use(staticServer(path.join(__dirname, 'public')));
 // logger
 app.use(async (ctx, next) => {
   const start = new Date();
