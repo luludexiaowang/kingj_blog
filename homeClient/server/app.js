@@ -1,12 +1,20 @@
+/**
+ * Created by kingj on 2018/01/01.
+ * app入口 
+ */
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const engines = require('consolidate');
 
 const app = express();
 
 // view engine setup
+// app.engine('.html', require('jade').renderFile);
+app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 
 app.use(logger('dev'));

@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 
 /**
+ * Created by kingj on 2017/01/01.
+ * 启动文件
+ */
+
+/**
  * Module dependencies.
  */
 
@@ -12,7 +17,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
 /**

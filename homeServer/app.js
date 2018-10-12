@@ -15,9 +15,9 @@ const mysql = require('./lib/mysql');
 const router = require('./routes/index');
 
 // 校验
-// const auth = require('./lib/auth');
-// const checkAuth = new auth();
-// app.use(checkAuth.checkCooie);
+const auth = require('./lib/auth');
+const checkAuth = new auth();
+app.use(checkAuth.checkCooie);
 
 // error handler
 onerror(app);
